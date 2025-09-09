@@ -1,4 +1,4 @@
-#Core Learning Algorithams: Building the model
+#Core Learning Algorithams: Building the model 
 import tensorflow as tf
 import pandas as pd
 

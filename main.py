@@ -9,7 +9,6 @@ import tensorflow as tf  # for deep learning and neural networks
 dftrain = pd.read_csv('https://storage.googleapis.com/tf-datasets/titanic/train.csv')
 dftest = pd.read_csv('https://storage.googleapis.com/tf-datasets/titanic/eval.csv')
 
-# Remove the 'survived' column (lab   els)
 y_train = dftrain.pop('survived')
 y_eval = dftest.pop('survived')
 

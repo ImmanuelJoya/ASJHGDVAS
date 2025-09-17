@@ -38,3 +38,57 @@ model = keras.Sequential([
     keras.layers.Dense(128, activation='relu'), # hidden layer with 128 neurons and ReLU activation function
     keras.layers.Dense(10, activation='softmax') # output layer with 10 neurons (one for each class) and softmax activation function
 ])
+
+# Compile the model
+model.compile(optimizer='adam', # optimizer
+                loss='sparse_categorical_crossentropy', # loss function
+                metrics=['accuracy']) # metric to monitor
+
+# Training the model
+model.fit(train_images, train_labels, epochs=10) # training the model for 10 epochs
+
+# Evaluating the model
+test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2) # evaluating the model on the test set
+print('\nTest accuracy:', test_acc) # printing the test accuracy
+
+# Making predictions
+predictions = model.predict(test_images) # making predictions on the test set
+print(class_names[np.argmax(predictions[0])]) # printing the predicted class for the first test image
+plt.figure()
+plt.imshow(test_images[0]) # display the first test image
+plt.colorbar() # display the color bar
+plt.grid(False) # remove the grid
+plt.show() # show the image
+
+#Varifying the prediction
+COLOR = 'white'
+plt.rcParams['text.color'] = COLOR
+plt.rcParams['axes.labelcolor'] = COLOR
+
+def predict(model, image, correct_label):
+    class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+    prediction = model.predict(np.arry([image])) 
+    predicted_class = class_names[np.argmax(prediction)]
+
+    show_image(image, class_names[correct_label], predicted_class)
+
+def show_image(img, label, guess):
+    plt.figure()
+    plt.imshow(img, cmap=plt.cm.binary)
+    plt.title("Actual: " + label + " Guess: " + guess)
+    plt.axis('off')
+    plt.show()
+
+def get_number():
+    while True:
+        num = input("Enter a number between 0 and 9999: ")
+        if num.isdigit() and 0 <= int(num) <= 9999:
+            return int(num)
+        else:
+            print("Invalid input. Please try again.")
+
+num = get_number()
+image = test_images[num]
+label = test_labels[num]
+predict(model, image, label)
+   

@@ -21,7 +21,7 @@ train_labels # labels for the training set
 # there are 10 different classes in the dataset
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 # mapping the labels to the class names
-plt.figure()
+plt.figure()``
 plt.imshow(train_images[5]) # display the first image in the training set
 plt.colorbar() # display the color bar
 plt.grid(False) # remove the grid

@@ -11,7 +11,7 @@ train_images, test_images = train_images / 255.0, test_images / 255.0
 
 # Define the class names
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
-               'dog', 'frog', 'horse', 'ship', 'truck']
+            'dog', 'frog', 'horse', 'ship', 'truck']
 
 IMG_INDEX = 1  # Change this index to visualize different images
 # Visualize the first 25 images from the training set and display the class name below each image

@@ -32,8 +32,8 @@ model.add(layers.Dense(10))
 
 # Compile the model
 model.compile(optimizer='adam',
-              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-              metrics=['accuracy'])
+            loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+            metrics=['accuracy'])
 
 # Train the model
 history = model.fit(train_images, train_labels, epochs=10, 
